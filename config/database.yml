@@ -1,0 +1,16 @@
+development:
+  adapter:  postgresql
+  encoding: utf8
+  database: uniqsystems
+  username: ilnar
+  password: 104Hmoa)
+  host:     localhost
+  port:     5432
+  pool:     10
+
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000

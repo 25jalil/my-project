@@ -1,0 +1,11 @@
+%h4= link_to "Создать пост", new_post_path
+- if @posts.size != 0
+  #posts
+    %h1 Все посты
+    - @posts.each do |post|
+      .post
+        %h2.title= link_to post.title, post
+        %p.date= post.body
+        %p= time_ago_in_words(post.created_at)
+- else
+  %h1 Постов нет

@@ -6,14 +6,15 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .navbar.navbar-inverse
-      .container-fluid
-        .navbar-header
-          .navbar-brand
-            = link_to "Uniqsystems", root_path
-          %ul.nav.navbar-nav
-            %li.active
-              = link_to "Создать пост", new_post_path
     .container
-      = yield
+      .navbar.navbar-inverse
+        .container-fluid
+          .navbar-header
+            .navbar-brand
+              = link_to "Uniqsystems", root_path
+            %ul.nav.navbar-nav
+              %li.active
+                = link_to "Создать пост", new_post_path
+      .container
+        = yield
 

@@ -7,7 +7,7 @@
       %ul
         - @post.errors.full_messages.each do |message|
           %li= message
-  %br= f.input :title, label: "Заголовок"
-  %br= f.input :body, label: "Тело"
+  %br= f.input :title, label: "Заголовок", required: false
+  %br= f.input :body, label: "Тело", required: false
   = f.button :submit, value: "Добавить"
 

@@ -16,6 +16,7 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem "jquery-ui-rails"
+gem 'bcrypt-ruby'
 
 group :development, :test do
   gem 'byebug'

@@ -1,0 +1,9 @@
+%h4= "Sign in"
+.row
+  .span6.offset3
+    = simple_form_for :session, { url: sessions_path } do |f|
+      = f.input :email, required: false
+      = f.input :password, required: false
+      = f.submit "Sign in", class: "btn btn-large btn-primary"
+    %p
+      New user? #{link_to "Sign up now!", signup_path}

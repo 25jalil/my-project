@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  before_create :create_remember_token
+  before_create :create_remember_token, :add_admin
 
   validates :name,  presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
   validates :password,  presence: true, length: { minimum: 6 }
@@ -19,5 +19,11 @@ class User < ActiveRecord::Base
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
+    def add_admin
+      if User.all.empty?
+        self.admin = true
+      end
     end
 end

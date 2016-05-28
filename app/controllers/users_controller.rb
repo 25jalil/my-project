@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
 
-  before_action :signed_in_user,  only: [:index, :edit, :update, :destroy]
+  before_action :signed_in_user,  only: [:edit, :update, :destroy]
   before_action :correct_user,    only: [:edit, :update]
   before_action :admin_user,      only: [:destroy]
 
-  def index
-    @users = User.paginate(page: params[:page])
-  end
 
   def show
     @user = User.find(params[:id])
@@ -21,8 +18,8 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to project2"
-      redirect_to @user
+      flash[:success] = "Welcome to blog"
+      redirect_to root_path
     else
       flash.now[:error]= "Invalid form"
       render 'new'
@@ -53,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :password,
      :password_confirmation)
   end
 

@@ -2,7 +2,7 @@
 .row
   .span6.offset3
     = simple_form_for :session, { url: sessions_path } do |f|
-      = f.input :email, required: false
+      = f.input :name, required: false
       = f.input :password, required: false
       = f.submit "Sign in", class: "btn btn-large btn-primary"
     %p

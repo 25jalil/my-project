@@ -2,11 +2,9 @@
   .container
     .navbar-brand
       %li= link_to "Home page", root_path
-    %ul.nav.navbar-nav
+    %ul.nav.navbar-nav.navbar-right
       - if signed_in?
-        %li= link_to "Users", users_path
-        %li= link_to "Profile", current_user
-        %li= link_to "Settings", edit_user_path(current_user)
+        %li= link_to current_user.name.capitalize, user_path(current_user)
         %li= link_to "Sign out", signout_path, method: "delete"
       - else
         %li= link_to "Sign in", signin_path

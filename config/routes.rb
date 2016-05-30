@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
   resources :categories, only: [:index, :create, :edit, :destroy]
-  get '/categories/new/(:parent_id)', to: 'categories#new', as: :new_category
+  get '/categories/new/(:name, :parent_id)', to: 'categories#new', as: :new_category
 end

@@ -1,5 +1,7 @@
-= simple_form_for(@category, html: { class: 'form-horizontal'}) do |f|
+- if @category.parent
+  %h3= "Вы добавляете категорию в #{@name_parent_category}"
+= simple_form_for(@category) do |f|
   = f.hidden_field :parent_id, value: params[:parent_id]
-  = f.input :name, label: "Имя категории", class: 'form_control'
+  = f.input :name, label: "Имя категории"
   %br
   = f.button :submit, value: "Добавить"

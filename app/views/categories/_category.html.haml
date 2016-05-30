@@ -5,6 +5,5 @@
   %h3= category.name
 - from_reply_form ||= nil
 - unless from_reply_form
-  %p= link_to 'Добавить', new_category_path(category.id)
-  %p= link_to 'Редактировать', edit_category_path(category)
-  %p= link_to 'Удалить', category_path(category), method: :delete, data: { confirm: "Вы уверены ?" }
+  %p= link_to 'Вложить категорию', new_category_path(category.name, category.id)
+  %p= link_to 'Удалить', category, method: :delete, data: { confirm: "Вы уверены ?" }

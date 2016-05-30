@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new
+    @category = Category.new(parent_id: params[:parent_id])
+    @name_parent_category = params[:name]
   end
 
   def create
@@ -37,7 +38,8 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
+    @category = Category.find(params[:id]).destroy
+    flash[:success] = "Категория успешно удалена"
     redirect_to categories_path
   end
 

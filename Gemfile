@@ -16,6 +16,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem "jquery-ui-rails"
 gem 'bcrypt-ruby', '3.1.2'
+gem 'closure_tree'
 
 group :development, :test do
   gem 'byebug'

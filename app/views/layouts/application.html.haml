@@ -8,6 +8,17 @@
   %body
     = render 'layouts/header'
     .container
-      = render 'layouts/flash'
-      = yield
-      = debug(params) if Rails.env.development?
+      .row
+        .aside.col-sm-12.col-md-4.col-lg-3
+          .row
+            .col-sm-6.col-md-12
+              %h3 Теги:
+              / = render 'posts/show_tags_in_sidebar'
+            .col-sm-6.col-md-12
+              %h3 Категории:
+              - @categories = Category.hash_tree
+              = show_categories_to_sidebar @categories
+        .article.col-sm-12.col-md-8.col-lg-9
+          = render 'layouts/flash'
+          = yield
+          = debug(params) if Rails.env.development?

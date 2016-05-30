@@ -1,9 +1,15 @@
 .nav.navbar.navbar-default
   .container
-    .navbar-brand
-      %li= link_to "Home page", root_path
+    %ul.navbar-brand
+      - if signed_in? && current_user.admin?
+        = link_to "Домашняя страница администратора", root_path
+      - else
+        = link_to "Домашняя страница", root_path
     %ul.nav.navbar-nav.navbar-right
       - if signed_in?
+        - if current_user.admin?
+          %li= link_to "New post", new_post_path
+          %li= link_to "New category", new_category_path
         %li= link_to current_user.name.capitalize, user_path(current_user)
         %li= link_to "Sign out", signout_path, method: "delete"
       - else

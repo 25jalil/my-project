@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_user
   def index
     @categories = Category.hash_tree
   end
@@ -52,5 +52,4 @@ class CategoriesController < ApplicationController
   def find_category
     @category = Category.find(params[:id])
   end
-
 end

@@ -1,4 +1,4 @@
-  module ApplicationHelper
+module ApplicationHelper
   def bootstrap_flash_class(flash_type)
     { success: 'alert-success',
       error:   'alert-danger',

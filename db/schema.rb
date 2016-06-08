@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530135938) do
+ActiveRecord::Schema.define(version: 20160608075501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,20 @@ ActiveRecord::Schema.define(version: 20160530135938) do
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", unique: true, using: :btree
+
+  create_table "posts_tags", id: false, force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  add_index "posts_tags", ["post_id"], name: "index_posts_tags_on_post_id", using: :btree
+  add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

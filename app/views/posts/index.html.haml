@@ -1,6 +1,7 @@
+%h2 Посты:
 - if @posts.size != 0
   - @posts.each do |post|
     %h2= link_to post.title, post
     %p= time_ago_in_words(post.created_at)
 - else
-  %h1 Постов нет(developers can use the command to console rake db:seed)
+  %h1 Постов нет

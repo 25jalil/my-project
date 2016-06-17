@@ -2,7 +2,7 @@
   .container
     %ul.navbar-brand
       - if signed_in? && current_user.admin?
-        = link_to "Домашняя страница администратора", root_path
+        = link_to "Домашняя страница(с привилегиями администратора)", root_path
       - else
         = link_to "Домашняя страница", root_path
     %ul.nav.navbar-nav.navbar-right

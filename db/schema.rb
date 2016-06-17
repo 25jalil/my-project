@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160608075501) do
     t.integer  "category_id"
   end
 
-  add_index "posts", ["category_id"], name: "index_posts_on_category_id", unique: true, using: :btree
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
 
   create_table "posts_tags", id: false, force: :cascade do |t|
     t.integer "post_id"

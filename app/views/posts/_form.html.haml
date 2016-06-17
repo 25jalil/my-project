@@ -8,7 +8,7 @@
         - @post.errors.full_messages.each do |message|
           %li= message
   = f.association :category, collection: Category.all, prompt: "Выберите категорию", label: "Категории"
-  = f.association :tags, as: :string, label: "Теги", required: false, placeholder: "Пожалуйста разделяйте запятыми"
+  / = f.association :tags, as: :string, label: "Теги", required: false, placeholder: "Пожалуйста разделяйте запятыми"
   = f.input :title, label: "Заголовок", required: false
   = f.input :body, label: "Тело", required: false
   = f.button :submit, value: "Добавить"

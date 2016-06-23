@@ -24,12 +24,36 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      flash[:notice] = 'Вы успешно создали новый пост'
-      redirect_to @post
+    if params[:tags][:name]
+      @tags = params[:tags][:name].split(/[, \.?!]+/)
+      @tags.each do |tag|
+        tag_new = Tag.new(name: tag)
+        if tag_new.save
+          @post = tag_new.build_post(post_params)
+          if @post.save
+            flash[:notice] = 'Вы успешно создали новый пост'
+            redirect_to @post
+          else
+            render 'new'
+          end
+        else
+          tag_find = Tag.find(name: params[:tags][:name])
+          @post = tag_find.build_post(post_params)
+          if @post.save
+            flash[:notice] = 'Вы успешно создали новый пост'
+            redirect_to @post
+          else
+            render 'new'
+          end
+        end
+      end
     else
-      render 'new'
+      @post = Post.new(post_params)
+      if @post.save
+        redirect_to @post
+      else
+        render 'new'
+      end
     end
   end
 
@@ -59,6 +83,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :category_id)
+      params.require(:post).permit(:title, :body, :category_id, :tags)
     end
 end

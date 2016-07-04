@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
- has_and_belongs_to_many :posts
- validates :name, uniqueness: true
+ has_many :tags_assosiations
+ has_many :posts, through: :tags_assosiations
 end

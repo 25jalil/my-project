@@ -24,37 +24,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    if params[:tags][:name]
-      @tags = params[:tags][:name].split(/[, \.?!]+/)
+    @post = Post.new(post_params)
+    @tags = params[:post][:tags]["name"].split(/[, \.?!]+/)
       @tags.each do |tag|
-        tag_new = Tag.new(name: tag)
-        if tag_new.save
-          @post = tag_new.build_post(post_params)
-          if @post.save
-            flash[:notice] = 'Вы успешно создали новый пост'
-            redirect_to @post
-          else
-            render 'new'
-          end
-        else
-          tag_find = Tag.find(name: params[:tags][:name])
-          @post = tag_find.build_post(post_params)
-          if @post.save
-            flash[:notice] = 'Вы успешно создали новый пост'
-            redirect_to @post
-          else
-            render 'new'
-          end
-        end
+        @tag = Tag.new(name: tag)
+        @post.tags << @tag
+        @post.save
       end
-    else
-      @post = Post.new(post_params)
-      if @post.save
-        redirect_to @post
-      else
-        render 'new'
-      end
-    end
+    redirect_to @post
   end
 
   def update

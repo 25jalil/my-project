@@ -27,11 +27,17 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @tags = params[:post][:tags]["name"].split(/[, \.?!]+/)
       @tags.each do |tag|
-        @tag = Tag.new(name: tag)
-        @post.tags << @tag
-        @post.save
+        @tag = Tag.new(name: tag.downcase)
+        if @tag.save
+          @post.tags << @tag
+        end
       end
-    redirect_to @post
+
+      if @post.save
+        redirect_to @post
+      else
+        render 'new'
+      end
   end
 
   def update

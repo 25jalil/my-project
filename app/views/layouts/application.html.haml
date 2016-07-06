@@ -13,7 +13,7 @@
           .row
             .col-sm-6.col-md-12
               %h3 Теги:
-              / = render 'posts/show_tags_in_sidebar'
+              = render 'tags/show_tags_to_sidebar'
             .col-sm-6.col-md-12
               %h3 Категории:
               - @categories = Category.hash_tree

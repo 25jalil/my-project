@@ -8,6 +8,8 @@ class PostsController < ApplicationController
       array_of_categories = category_parent.self_and_descendant_ids
       iterator = Proc.new {|n| n}
       @posts = Post.where(category_id: array_of_categories.each(&iterator)).order("created_at DESC")
+    elsif params[:tag]
+      @posts = Post.posts_for_tag(params[:tag])
     else
       @posts = Post.all.order("created_at DESC")
     end
@@ -28,8 +30,11 @@ class PostsController < ApplicationController
     @tags = params[:post][:tags]["name"].split(/[, \.?!]+/)
       @tags.each do |tag|
         @tag = Tag.new(name: tag.downcase)
-        if @tag.save
-          @post.tags << @tag
+         if @tag.save
+           @post.tags << @tag
+         else
+          @tag_find_to_database = Tag.where(name: tag.downcase )
+          @post.tags << @tag_find_to_database
         end
       end
 

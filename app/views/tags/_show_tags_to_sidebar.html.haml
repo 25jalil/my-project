@@ -4,23 +4,22 @@
   - @tags_array << tag.tag_id
 - @tags_array.sort_by! {|v| -@tags_array.count(v)}.uniq!
 - @tagview = Tag.find(@tags_array)
-- @tagview.each_with_index do |value, index|
+- if @tagview.any?
+  %h3 Теги:
+  - @tagview.each_with_index do |value, index|
+    - if index == 0 or index == 1
+      .css
+        = link_to value.name, tag_path(value)
+    - elsif index == 2 or index == 3
+      .css1
+        = link_to value.name, tag_path(value)
+    - elsif index == 4 or index == 5
+      .css2
+        = link_to value.name, tag_path(value)
+    - elsif index == 6 or index == 7
+      .css3
+        = link_to value.name, tag_path(value)
+    - else
+      .css4
+        = link_to value.name, tag_path(value)
 
-  - if index == 0
-    .css
-      = value.name
-  - elsif index == 1
-    .css1
-      = value.name
-  - elsif index == 2
-    .css2
-      = value.name
-  - elsif index == 3
-    .css3
-      = value.name
-  - elsif index == 4
-    .css4
-      = value.name
-  - else
-    .css5
-      = value.name

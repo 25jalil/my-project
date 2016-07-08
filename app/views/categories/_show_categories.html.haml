@@ -1,0 +1,4 @@
+- @categories = Category.hash_tree
+- if @categories.any?
+  %h3 Категории:
+  = show_categories_to_sidebar @categories

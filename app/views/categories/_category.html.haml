@@ -1,8 +1,8 @@
 - category_has_many_posts ||= nil
 - if category_has_many_posts
-  %p= link_to category.name, posts_path(category: category.name)
+  %p= link_to category.name.capitalize, posts_path(category: category.name)
 - else
-  %h3= category.name
+  %h3= category.name.capitalize
 - from_reply_form ||= nil
 - unless from_reply_form
   %p= link_to 'Вложить категорию', new_category_path(category.name, category.id)

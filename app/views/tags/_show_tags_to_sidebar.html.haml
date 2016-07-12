@@ -9,6 +9,7 @@
   - @tagview.each_with_index do |value, index|
     - if index == 0 or index == 1
       .css
+<<<<<<< HEAD
         = link_to value.name, tag_path(value)
     - elsif index == 2 or index == 3
       .css1
@@ -22,4 +23,19 @@
     - else
       .css4
         = link_to value.name, tag_path(value)
+=======
+        = link_to value.name.capitalize, tag_path(value)
+    - elsif index == 2 or index == 3
+      .css1
+        = link_to value.name.capitalize, tag_path(value)
+    - elsif index == 4 or index == 5
+      .css2
+        = link_to value.name.capitalize, tag_path(value)
+    - elsif index == 6 or index == 7
+      .css3
+        = link_to value.name.capitalize, tag_path(value)
+    - else
+      .css4
+        = link_to value.name.capitalize, tag_path(value)
+>>>>>>> tags
 

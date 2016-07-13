@@ -3,6 +3,7 @@ class TagsController < ApplicationController
   before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    @tags = Tag.all
   end
 
   def new
@@ -18,12 +19,15 @@ class TagsController < ApplicationController
   end
 
   def destroy
+    @tag.destroy
+    flash[:success] = "Тег успешно удален!"
+    redirect_to tags_path
   end
 
   private
 
     def set_tag
-      @post = Post.find(params[:id])
+      @tag = Tag.find(params[:id])
     end
 
     def tag_params

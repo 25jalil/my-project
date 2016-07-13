@@ -1,0 +1,6 @@
+%h2 Теги:
+- @tags.each do |tag|
+  %h2= tag.name
+  %p= time_ago_in_words(tag.created_at)
+  - if signed_in? && current_user.admin?
+    = link_to 'Delete', tags_remove_path(tag), method: :delete, data:{ confirm: "Are you sure"}

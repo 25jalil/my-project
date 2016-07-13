@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user
+  before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
   def index
     @categories = Category.hash_tree
   end

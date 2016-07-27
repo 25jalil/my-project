@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   has_many :tags_associations
   has_many :tags, through: :tags_associations
+  has_many :comments
 
   scope :posts_for_tag, -> (tag) do
     includes(:tags_associations, :tags)

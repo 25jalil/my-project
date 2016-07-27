@@ -4,6 +4,13 @@
   %p= @post.body
   %p= time_ago_in_words(@post.created_at)
 
+  #comments
+    %h2= "#{@post.comments.count} комментарии"
+    = render @post.comments
+
+    %h3 Комментировать:
+    = render "comments/form"
+
   = link_to "Home", root_path, class: "button"
   = link_to "Edit", edit_post_path(@post), class: "button"
   = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Вы уверены?" }, class: "button"

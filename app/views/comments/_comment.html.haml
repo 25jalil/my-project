@@ -1,0 +1,6 @@
+.comment
+  %p= comment.body
+  %p= comment.user.name
+  - if current_user.admin?
+    = link_to "Редактировать", edit_post_comment_path(comment.post, comment)
+    = link_to "Удалить", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "ВЫ точно хотите удалить!"}

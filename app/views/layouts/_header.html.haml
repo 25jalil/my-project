@@ -6,6 +6,10 @@
       - else
         = link_to "Домашняя страница", root_path
     %ul.nav.navbar-nav.navbar-right
+      %li.search
+        = form_tag results_path, method: :get, role: 'search' do
+          = text_field_tag :query, params[:query]
+          = submit_tag "Искать", name: nil, id: 'search_submit'
       - if signed_in? && current_user.admin?
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}

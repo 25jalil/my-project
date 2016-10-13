@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  after_save ThinkingSphinx::RealTime.callback_for(:post)
+
   validates_presence_of :title, :body
   belongs_to :category
   has_many :tags_associations

@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :create, :edit, :destroy]
   get '/categories/new/(:name, :parent_id)', to: 'categories#new', as: :new_category
+  get 'results', to: 'results#index', as: 'results'
 end

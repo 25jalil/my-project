@@ -8,6 +8,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # add gems
+gem 'mysql2', '~> 0.3.13'
 gem 'pg'
 gem 'haml'
 gem 'simple_form'
@@ -17,6 +18,7 @@ gem 'bootstrap-will_paginate'
 gem "jquery-ui-rails"
 gem 'bcrypt-ruby', '3.1.2'
 gem 'closure_tree'
+gem 'thinking-sphinx', '3.2.0'
 
 group :development, :test do
   gem 'byebug'

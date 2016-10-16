@@ -1,6 +1,7 @@
 /*
- *= require_tree .
+ *= require jquery.ui.all
  *= require_self
+ *= require_tree .
  */
 
 @import "bootstrap-sprockets";
@@ -12,9 +13,9 @@ body {
 }
 
 html {
-  font-family: sans-serif; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 /*вложение категории */
@@ -34,14 +35,17 @@ html {
 }
 
 .border {
-  margin-top: 10px;
+  border: 0px;
+  margin-top: 5px;
   padding: 5px 15px 20px;
 }
 
 .navbar-default {
   background-color: #21E992;
-  margin-left: 29px;
-  margin-right: 17px;
+  margin-top: 1px;
+  margin-left: 15px;
+  margin-right: 14px;
+  margin-bottom: 0px;
   border-color: #FACB10;
 }
 
@@ -90,7 +94,7 @@ p {
     background: #ffffff !important; // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым
     outline: none; // удаляет обводку в браузерах хром(желтая) и сафари(синяя)
     height: 30px; // высота на свое усмотрение
-    width: 160px; // ширина на свое усмотрение
+    width: 235px; // ширина на свое усмотрение
     color: #777; //цвет шрифта в обычном состоянии
     font-size: 15px; // Размер шрифта
     font-family: Tahoma; // Стиль шрифта
@@ -100,18 +104,30 @@ p {
   }
 }
 #search_submit {
-  position: absolute;
-  top: 11px;
-  left: 170px;
+  position: relative;
+  top: 8px;
+  left: 152px;
   background-color: #00e64d;
   border: 1px solid #00b33c; //цвет рамки
-  width: 90px; // ширина на свое усмотрение
+  width: 80px; // ширина на свое усмотрение
   height: 30px;
   border-radius: 9px; //закругление углов (общее)
   -webkit-border-radius: 9px; //закругление углов (Google Chrome)
   -moz-border-radius: 9px; //закругление углов (FireFox)
   -khtml-border-radius: 9px; //закругление углов (Safari)
   color: #777; //цвет шрифта в обычном состоянии
+}
+
+.params {
+  margin-top: 25px;
+  position: relative;
+  right: 15px;
+}
+
+.params2 {
+  margin-top: 25px;
+  position: relative;
+  right: 10px;
 }
 
 

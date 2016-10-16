@@ -6,22 +6,26 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .container-fluid
+    .row-fluid
       = render 'layouts/header'
       .row-fluid
-        .aside.col-sm-12.col-md-4.col-lg-3
+        .aside.col-sm-12.col-md-3.col-lg-3
           .row-fluid
-            .col-sm-6.col-md-12
-              .color
-                .border
-                  = render 'tags/show_tags_to_sidebar'
-            .col-sm-6.col-md-12
-              .color
-                .border
-                  = render 'categories/show_categories'
-        .aside.col-sm-12.col-md-8.col-lg-9
-          = render 'layouts/flash'
+            .color
+              .border
+                = render 'tags/show_tags_to_sidebar'
+            .color
+              .border
+                = render 'categories/show_categories'
+        .aside.col-sm-12.col-md-6.col-lg-6
           .color
             .border
+              = render 'layouts/flash'
               = yield
               = debug(params) if Rails.env.development?
+        .aside.col-sm-12.col-md-3.col-lg-3
+          .color
+            .border
+              .search
+                .row-fluid
+                  = render 'results/search'

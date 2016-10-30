@@ -1,19 +1,19 @@
 = form_tag results_path, method: :get, role: 'search' do
   = text_field_tag :query, params[:query]
-  = text_field_tag :created_at, class: 'datepicker'
+  = text_field_tag :start_date, params[:start_date], placeholder: "Дата от", 'data-behaviour' => 'datepicker', id: 'date'
+  = text_field_tag :end_date, params[:end_date], placeholder: "Дата конец", 'data-behaviour' => 'datepicker', id: 'date'
+  .aside.col-md-6.col-lg-6.color.border.params
+    - @tagview = Tag.all
+    %h5 Теги:
+    - @tagview.each do |value|
+      .css4
+        = check_box_tag params[:tags]
+        = label_tag("value.name", value.name)
+  .aside.col-md-6.col-lg-6.color.border.params.params2
+    %h5 Категории:
+    - @categories = Category.all
+    - @categories.each do |value|
+      .css4
+        = check_box_tag value.name, label: false
+        = label_tag("value.name", value.name)
   = submit_tag "Искать", name: nil, id: 'search_submit'
-
-.aside.col-md-6.col-lg-6.color.border.params
-  - @tagview = Tag.all
-  %h5 Теги:
-  - @tagview.each do |value|
-    .css4
-      = check_box_tag value.name, label: false
-      = label_tag("value.name", value.name)
-.aside.col-md-6.col-lg-6.color.border.params.params2
-  %h5 Категории:
-  - @categories = Category.all
-  - @categories.each do |value|
-    .css4
-      = check_box_tag value.name, label: false
-      = label_tag("value.name", value.name)

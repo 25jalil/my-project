@@ -10,10 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery.ui.all
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
+
+ $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker();
+  })
 
 
 

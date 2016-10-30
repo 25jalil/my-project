@@ -3,6 +3,7 @@ gem 'rails', '4.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -17,7 +18,7 @@ gem 'bootstrap-will_paginate'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'closure_tree'
 gem 'thinking-sphinx', '3.2.0'
-gem 'jquery-ui-rails'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -1,11 +1,11 @@
 /*
- *= require bootstrap-datepicker
  *= require_self
  *= require_tree .
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 
 body {
   margin: 0;

@@ -11,4 +11,4 @@
             = link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure"}
   - else
     .post
-      %h2.title Постов нет
+      %h2.title Постов нет. Не забудьте проиндексировать. (rake ts:start, rake ts:generate)

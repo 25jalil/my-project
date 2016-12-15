@@ -13,15 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require bootstrap-datepicker
+//= require moment
+//= require moment/ru
+//= require bootstrap-datetimepicker
 //= require turbolinks
 //= require_tree .
 
- $(document).ready(function(){
-    $('[data-behaviour~=datepicker]').datepicker({
-      format: "yyyy, mm, dd"
-    });
-  })
+$(function () {
+  $('.datetimepicker').datetimepicker({
+  });
+});
 
 
 

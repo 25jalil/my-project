@@ -1,19 +1,12 @@
 = form_tag results_path, method: :get, role: 'search' do
   = text_field_tag :query, params[:query], placeholder: " Введите слово"
   = text_field_tag :start_date, params[:start_date], placeholder: " Начало", class: 'datetimepicker', id: 'date'
-  = text_field_tag :end_date, params[:end_date], placeholder: " Конец", class: 'datetimepicker', id: 'date'
+  = text_field_tag :end_date, params[:end_date], placeholder: " Конец", class: 'datetimepicker', id: 'date1'
   = submit_tag "Искать", name: nil, id: 'search_submit'
-  .aside.col-md-6.col-lg-6.color.border.params
+  .tags_radio
     - @tagview = Tag.all
-    %h5 Теги:
     - @tagview.each do |tag|
-      .css4
-        = check_box_tag :tags, tag.name
+      #margin.radio-inline
+        = radio_button_tag :tag, tag.id
         = label_tag tag.name
-  .aside.col-md-6.col-lg-6.color.border.params2
-    %h5 Категории:
-    - @categories = Category.all
-    - @categories.each do |category|
-      .css4
-        = check_box_tag :categories, category.name
-        = label_tag category.name
+

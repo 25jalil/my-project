@@ -4,7 +4,10 @@
     - @posts.each do |post|
       .post
         %h2.title= link_to post.title, post
-        %p.date= time_ago_in_words(post.created_at)
+        %p= time_ago_in_words(post.created_at)
+        %p
+          = post.get_likes.size
+          Likes
         - if signed_in? && current_user.admin?
           .links
             = link_to 'Edit', edit_post_path(post)

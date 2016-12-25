@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -65,8 +65,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def upvote
+    @post.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @post.downvote_by current_user
+    redirect_to :back
+  end
+
   private
-    def set_post
+    def find_post
       @post = Post.find(params[:id])
     end
 

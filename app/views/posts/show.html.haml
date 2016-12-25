@@ -3,14 +3,22 @@
   %h1= @post.title
   %p= @post.body
   %p= time_ago_in_words(@post.created_at)
+  %p
+    = @post.get_upvotes.size
+    Likes
+  %p
+    = @post.get_downvotes.size
+    Dislikes
 
-  #comments
-    %h2= "#{@post.comments.count} комментарии"
-    = render @post.comments
+  %h2= "#{@post.comments.count} комментарии"
+  = render @post.comments
 
+  - if signed_in?
     %h3 Комментировать:
     = render "comments/form"
-
-  = link_to "Home", root_path, class: "button"
-  = link_to "Edit", edit_post_path(@post), class: "button"
-  = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Вы уверены?" }, class: "button"
+    = link_to 'Likes', like_post_path(@post), method: :get
+    = link_to 'Dislikes', dislike_post_path(@post), method: :get
+    = link_to "Home", root_path, class: "button"
+    - if current_user.admin?
+      = link_to "Edit", edit_post_path(@post), class: "button"
+      = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Вы уверены?" }, class: "button"

@@ -7,11 +7,11 @@ class PostsController < ApplicationController
       category_parent = Category.find_by(name: params[:category])
       array_of_categories = category_parent.self_and_descendant_ids
       iterator = Proc.new {|n| n}
-      @posts = Post.where(category_id: array_of_categories.each(&iterator)).order("created_at DESC")
+      @posts = Post.where(category_id: array_of_categories.each(&iterator)).order(cached_votes_score: :asc).reverse
     elsif params[:tag]
       @posts = Post.posts_for_tag(params[:tag])
     else
-      @posts = Post.all.order("created_at DESC")
+      @posts = Post.all.order(cached_votes_score: :asc).reverse
     end
   end
 

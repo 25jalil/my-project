@@ -2,7 +2,7 @@
   %h3 Посты:
   - if @posts.size != 0
     - @posts.each do |post|
-      .post
+      .post{"data-post_id": post.id}
         %h2.title= link_to post.title, post
         %p= time_ago_in_words(post.created_at)
         %p
@@ -11,7 +11,7 @@
         - if signed_in? && current_user.admin?
           .links
             = link_to 'Edit', edit_post_path(post)
-            = link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure"}
+          .deleteAction Delete
   - else
     .post
       %h2.title Постов нет. Не забудьте проиндексировать. (rake ts:start, rake ts:generate)

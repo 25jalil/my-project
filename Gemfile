@@ -19,6 +19,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'closure_tree'
 gem 'thinking-sphinx', '3.2.0'
 gem 'momentjs-rails', '>= 2.9.0'
+gem 'jquery-turbolinks'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem "recaptcha", require: "recaptcha/rails"

@@ -6,6 +6,7 @@
       - else
         = link_to "Домашняя страница", root_path
     %ul.nav.navbar-nav.navbar-right
+      %li= link_to "Calendar", calendar_path
       - if signed_in? && current_user.admin?
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -16,7 +17,6 @@
             %li= link_to "New category", new_category_path
             %li= link_to "Show tags", tags_path
             %li= link_to "Show categories", categories_path
-
       - if signed_in?
         %li= link_to current_user.name.capitalize, user_path(current_user)
         %li= link_to "Sign out", signout_path, method: "delete"

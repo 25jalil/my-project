@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require moment
 //= require moment/ru
@@ -32,7 +33,8 @@ $(document).ready(function() {
       today: "Сегодня"
     },
     monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-    dayNamesShort: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"]
+    dayNamesShort: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"],
+    events: '/posts.json'
   });
 });
 

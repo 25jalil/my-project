@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  #before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     if params[:category]
@@ -59,7 +59,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    render json: {success: true}
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   def upvote
@@ -70,6 +73,9 @@ class PostsController < ApplicationController
   def downvote
     @post.downvote_by current_user
     redirect_to :back
+  end
+
+  def calendar
   end
 
   private

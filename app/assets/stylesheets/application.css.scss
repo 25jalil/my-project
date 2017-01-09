@@ -1,5 +1,6 @@
 /*
  *= require_self
+ *= require fullcalendar
  *= require_tree .
  */
 
@@ -38,11 +39,6 @@ html {
   border: 0px;
   margin-top: 5px;
   padding: 5px 15px 20px;
-}
-
-.deleteAction {
-  color:blue;
-  cursor: pointer;
 }
 
 .tags_radio {

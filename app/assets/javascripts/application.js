@@ -17,6 +17,7 @@
 //= require moment/ru
 //= require bootstrap-datetimepicker
 //= require turbolinks
+//= require fullcalendar
 //= require_tree .
 
 $(function () {
@@ -25,6 +26,15 @@ $(function () {
   });
 });
 
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    buttonText: {
+      today: "Сегодня"
+    },
+    monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+    dayNamesShort: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"]
+  });
+});
 
 
 
